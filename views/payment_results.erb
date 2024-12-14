@@ -1,0 +1,14 @@
+<h1>Payment Results</h1>
+<dl>
+  <dt>Principal</dt>
+  <dd><%= @principal %></dd>
+
+  <dt>APR</dt>
+  <dd><%= (@apr * 100).round(2) %>%</dd>
+
+  <dt>Number of Years</dt>
+  <dd><%= @years %></dd>
+
+  <dt>Monthly Payment</dt>
+  <dd><%= @monthly_payment.round(2) %></dd>
+</dl>
