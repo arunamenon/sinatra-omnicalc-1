@@ -43,9 +43,9 @@ get("/payment/results") do
   @monthly_payment = (@principal * monthly_rate) / (1 - (1 + monthly_rate)**-months)
 
   # Format values for display
-  @formatted_principal = "$#{'%.2f' % @principal}"
-  @formatted_apr = "%.4f%" % @apr
-  @formatted_monthly_payment = "$#{'%.2f' % @monthly_payment}"
+  @formatted_principal = @principal.to_fs(:currency)
+  @formatted_apr = "%.4f%%" % @apr
+  @formatted_monthly_payment = @monthly_payment.to_fs(:currency)
 
   erb(:payment_results)
 end
@@ -55,14 +55,15 @@ get("/random/new") do
 end
 
 get("/random/results") do
-  @min = params.fetch("min").to_i
-  @max = params.fetch("max").to_i
+  @min = params.fetch("min").to_f
+  @max = params.fetch("max").to_f
   @random_number = rand(@min..@max)
 
   erb(:random_results)
 end
 
 get("/") do
-  "<h1>Welcome to your Sinatra App!</h1>
-   <p>Define some routes in app.rb</p>"
+  erb(:new_square_calc)
+  # "<h1>Welcome to your Sinatra App!</h1>
+  #  <p>Define some routes in app.rb</p>"
 end

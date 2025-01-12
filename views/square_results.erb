@@ -12,6 +12,9 @@
     Square
   </dt>
   <dd>
-    <%= @the_result %>
+    <%= sprintf("%.10f", @the_result) %>
   </dd>
 </dl>
+<p>
+  <a href="/square/new">Calculate another square</a>
+</p>

@@ -4,7 +4,7 @@
     Number
   </dt>
   <dd>
-    <%= @the_num %>
+    <%= sprintf("%.0f", @the_num) %>
   </dd>
   <dt>
     Square Root
@@ -13,3 +13,6 @@
     <%= @the_result %>
   </dd>
 </dl>
+<p>
+  <a href="/square_root/new">Calculate another square root</a>
+</p>
